@@ -1,0 +1,28 @@
+Sub ConcateColumnA()
+
+
+
+Dim lrow As Integer
+Dim erange As Range
+Dim str As String
+With ActiveSheet
+lrow = .Range("A" & Rows.Count).End(xlUp).Row
+str = ""
+For Each erange In .Range("A1:A" & lrow)
+
+If str = "" Then
+str = erange.Value
+Else
+str = str & "," & erange.Value
+
+End If
+
+Next erange
+
+
+Application.ActiveSheet.Range("g1").Value = str
+
+End With
+
+End Sub
+
